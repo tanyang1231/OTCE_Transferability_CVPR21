@@ -24,6 +24,13 @@ In the code, we randomly generate an instance of testing data, which contains 10
 
 Here we recommend using the simplified version OT-based NCE score (introduced in the Appendix) to evaluate transferability, since the OTCE score requires auxiliary tasks with known transfer accuracy for learning a linear combination of domain difference and task difference. Consequently, it is more convenient for you to only take the task difference (OT-based NCE) to evaluate the transferability of your current task. Note that the conditional entropy shows negative correlation with the transfer performance, thus you can take the negative conditional entropy for indication.  
 
+In our experiments, we randomly select 1,000 samples from source and target data respectively for computation. You can adjust the sample size according to your setting. When the sample size grows, you may need more iterations for solving the OT problem. Therefore, when you see the message "RESULT MIGHT BE INACURATE" which means the max number of iteration is reached, you should set a greater number of max iterations (default 100,000) for OT solver as follow: 
+
+```
+# Line 13 in compute_otce_demo.py
+ot.emd(ot.unif(X_src.shape[0]), ot.unif(X_tar.shape[0]), C, numItermax=100000)
+```
+
 ### 3. Citation
 
 Please cite our paper if you think it is interesting. 

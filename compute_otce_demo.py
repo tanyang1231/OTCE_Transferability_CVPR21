@@ -10,7 +10,7 @@ def compute_coupling(X_src, X_tar, Y_src, Y_tar):
     cost_function = lambda x, y: geomloss.utils.squared_distances(x, y)
 
     C = cost_function(X_src,X_tar)
-    P = ot.emd(ot.unif(X_src.shape[0]), ot.unif(X_tar.shape[0]), C)
+    P = ot.emd(ot.unif(X_src.shape[0]), ot.unif(X_tar.shape[0]), C, numItermax=100000)
     W = np.sum(P*np.array(C.numpy()))
 
     return P,W
