@@ -33,7 +33,7 @@ ot.emd(ot.unif(X_src.shape[0]), ot.unif(X_tar.shape[0]), C, numItermax=100000)
 
 ### 3. Citation
 
-Please cite our paper if you think it is interesting. 
+Please cite our paper if you find it is interesting. 
 
 ```
 @InProceedings{Tan_2021_CVPR,
